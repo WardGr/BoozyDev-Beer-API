@@ -29,6 +29,43 @@ document.addEventListener('DOMContentLoaded', () => {
         SystemInfo.textContent = "";
     });
 
+    // Post Pintje Beer
+    const postPintjeButton = document.getElementById('post-pintje');
+    const pintjeIdInput = document.getElementById('pintje-id');
+    const pintjeBodyInput = document.getElementById('pintje-body');
+    const pintjeInfo = document.getElementById('pintje-info');
+    const pintjeUser = document.getElementById('pintje-username');
+
+    postPintjeButton.addEventListener('click', async () => {
+        const username = pintjeUser.value;
+        const id = pintjeIdInput.value;
+        const body = pintjeBodyInput.value;
+        if (!id) {
+            alert('Please enter a value for the beer name field.');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${baseUrl}/pintje/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, body }),
+            });
+            if (response.status === 400) {
+                const errorData = await response.json();
+                console.error('Error:', errorData.message);
+                pintjeInfo.textContent = `Error: ${errorData.message}`;
+            } else {
+                const data = await response.json();
+                pintjeInfo.textContent = JSON.stringify(data, null, 2);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
     // Get user Pints
     const getUserbeerButton = document.getElementById('get-user-pints');
     const UserInfo = document.getElementById('user-pints-info');
