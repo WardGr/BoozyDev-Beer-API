@@ -8,5 +8,10 @@
     "username": "Rein",
     "id": "Heineken",
     "info": "Perfect voor op maandagen"
+  },
+  {
+    "username": "Thomas",
+    "id": "Leuven",
+    "info": "Een echt Leuvense lager!"
   }
 ]

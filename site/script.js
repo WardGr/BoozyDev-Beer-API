@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const baseUrl = 'http://dropplet.wardgrosemans.be:8080';
+    const baseUrl = 'http://localhost:8080';
 
     // Get system Pints
     const getSystemButton = document.getElementById('get-system-pints');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`${baseUrl}/pintje/${id}`, {
+            const response = await fetch(`${baseUrl}/userpints/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`${baseUrl}/pints/${name}`, {
+            const response = await fetch(`${baseUrl}/userpints/${name}`, {
                 method: 'GET',
             });
             if (response.status === 440) {
