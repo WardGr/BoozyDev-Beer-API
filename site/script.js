@@ -28,6 +28,69 @@ document.addEventListener('DOMContentLoaded', () => {
     clearSystemButton.addEventListener('click', async () => {
         SystemInfo.textContent = "";
     });
+
+    // Get user Pints
+    const getUserbeerButton = document.getElementById('get-user-pints');
+    const UserInfo = document.getElementById('user-pints-info');
+
+    getUserbeerButton.addEventListener('click', async () => {
+        try {
+            const response = await fetch(`${baseUrl}/userpints`, { method: 'GET' });
+            const data = await response.json();
+
+            const ulElement = document.createElement('ul');
+            data.forEach((item) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = JSON.stringify(item, null, 2);
+                ulElement.appendChild(listItem);
+            });
+            UserInfo.innerHTML = '';
+            UserInfo.appendChild(ulElement);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    // clear user pints
+    const clearUserBtn = document.getElementById('clear-user-pints');
+    clearUserBtn.addEventListener('click', async () => {
+        UserInfo.textContent = "";
+    });
+
+    const specificPintButton = document.getElementById('get-specific-pint');
+    const specificPintInput = document.getElementById('specificPintInput');
+    const specificPintInfo = document.getElementById('specific-pint-info');
+    const specificClear = document.getElementById('clear-specific-pint');
+
+    specificPintButton.addEventListener('click', async () => {
+        const name = specificPintInput.value;
+        console.log(name);
+        if (!name) {
+            alert('Please enter a value for the beer name field.');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${baseUrl}/pints/${name}`, {
+                method: 'GET',
+            });
+            if (response.status === 440) {
+
+                specificPintInfo.textContent = `Error: cannot find pint in database`;
+            } else {
+                const data = await response.json();
+                specificPintInfo.textContent = JSON.stringify(data, null, 2);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+
+    specificClear.addEventListener('click', async () => {
+        specificPintInfo.textContent = "";
+    });
+
 });
 
 function navbar() {

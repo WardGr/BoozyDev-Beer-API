@@ -15,32 +15,49 @@
 </html>
 <body>
 
-  <navbar id="navbar">
-    <div><p>source code</p></div>
-    <div><p>developer</p></div>
-    <div><p>about</p></div>
-    <div id="bars" onclick="navbar()"><i class="fa fa-bars" aria-hidden="true"></i></div>
-  </navbar>
-  <h1>Beer API Client</h1>
+<navbar id="navbar">
+  <div><p>source code</p></div>
+  <div><p>developer</p></div>
+  <div><p>about</p></div>
+  <div id="bars" onclick="navbar()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</navbar>
+<h1>Beer API Client</h1>
 
-  <div id="content">
-    <div id="get-result">
-      <h2>Get System Pints</h2>
-      <button id="get-system-pints">Get system pints</button>
-      <button id="clear-system-pints">Clear</button>
-      <pre id="system-pints-info"></pre>
-    </div>
+<div id="content">
+  <div id="get-result">
+    <h2>Get System Pints</h2>
+    <button id="get-system-pints">Get system pints</button>
+    <button id="clear-system-pints">Clear</button>
+    <pre id="system-pints-info"></pre>
+  </div>
 
-  <footer>
-    <div><p>© Ward Grosemans 2023 - all rights reserved</p></div>
-    <div>
-      <i class="fa fa-facebook" aria-hidden="true"></i>
-      <i class="fa fa-linkedin" aria-hidden="true"></i>
-      <i class="fa fa-github" aria-hidden="true"></i>
+  <div id="specific-result">
+    <h2>Search Specific Pint</h2>
+    <input type="text" id="specificPintInput" placeholder="Enter your name">
+    <button id="get-specific-pint">Get Specific Pint</button>
+    <button id="clear-specific-pint">Clear</button>
+
+    <pre id="specific-pint-info"></pre>
+  </div>
+  <div id="posted-result">
+    <h2>Get User Pints</h2>
+    <button id="get-user-pints">Get User Pints</button>
+    <button id="clear-user-pints">Clear</button>
+
+    <pre id="user-pints-info"></pre>
+  </div>
+</div>
+
+<footer>
+  <div><p>© Ward Grosemans 2023 - all rights reserved</p></div>
+  <div>
+    <i class="fa fa-facebook" aria-hidden="true"></i>
+    <i class="fa fa-linkedin" aria-hidden="true"></i>
+    <i class="fa fa-github" aria-hidden="true"></i>
 
 
-    </div>
-  </footer>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
