@@ -119,6 +119,12 @@ button:hover {
     display: none
 }
 
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
 @media screen and (max-width: 600px) {
     #bars {
         display: flex;
