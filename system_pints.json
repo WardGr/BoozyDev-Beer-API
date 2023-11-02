@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Cristal",
+    "type": "Pilsner",
+    "brewery": "Brouwerij Alken-Maes",
+    "country": "Belgium"
+  },
+  {
+    "name": "Guinness",
+    "type": "Stout",
+    "brewery": "Guinness Brewery",
+    "country": "Ireland"
+  },
+  {
+    "name": "Heineken",
+    "type": "Lager",
+    "brewery": "Heineken Brouwerijen",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Sierra Nevada Pale Ale",
+    "type": "Pale Ale",
+    "brewery": "Sierra Nevada Brewing Co.",
+    "country": "United States"
+  },
+  {
+    "name": "Asahi Super Dry",
+    "type": "Lager",
+    "brewery": "Asahi Breweries",
+    "country": "Japan"
+  }
+]
