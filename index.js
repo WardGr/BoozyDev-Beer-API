@@ -16,7 +16,7 @@ app.get('/pints', (req, res) => {
     res.status(200).json(pintData);
 });
 
-app.get('/pints/:id', (req, res) => {
+app.get('/userpints/:id', (req, res) => {
     const idToFind = req.params.id;
     console.log("Someone requested pint with id " + idToFind);
     for (let i = 0; i < userData.length; i++) {
