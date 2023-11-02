@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const baseUrl = 'http://localhost:8080';
+    const baseUrl = 'https://dropplet.wardgrosemans.be:4430';
 
     // Get system Pints
     const getSystemButton = document.getElementById('get-system-pints');

@@ -1,14 +1,32 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require("fs");
+const https = require('https');
+const fs = require('fs');
 const app = express();
-const PORT = 8080;
 
-app.use(express.json());
+const HTTP_PORT = 8080;
+const HTTPS_PORT = 4430;
+
 app.use(cors());
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+app.listen(HTTP_PORT, () => {
+    console.log(`HTTP server is running on port ${HTTP_PORT}`);
+});
+
+// Configure SSL/TLS options
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/fullchain.pem')
+};
+
+const httpsServer = https.createServer(options, app);
+
+httpsServer.listen(HTTPS_PORT, () => {
+    console.log(`HTTPS server is running on port ${HTTPS_PORT}`);
+});
+
+app.get('/', (req, res) => {
+    res.send('This is the HTTPS server file!!');
 });
 
 app.get('/pints', (req, res) => {
