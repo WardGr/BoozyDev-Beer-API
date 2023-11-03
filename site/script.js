@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const pintjeUser = document.getElementById('pintje-username');
 
     postPintjeButton.addEventListener('click', async () => {
-        const username = pintjeUser.value;
-        const id = pintjeIdInput.value;
-        const body = pintjeBodyInput.value;
+        const username = escapeHtml(pintjeUser.value);
+        const id = escapeHtml(pintjeIdInput.value);
+        const body = escapeHtml(pintjeBodyInput.value);
         if (!id) {
             alert('Please enter a value for the beer name field.');
             return;
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const specificClear = document.getElementById('clear-specific-pint');
 
     specificPintButton.addEventListener('click', async () => {
-        const name = specificPintInput.value;
+        const name = escapeHtml(specificPintInput.value);
         console.log(name);
         if (!name) {
             alert('Please enter a value for the beer name field.');
@@ -146,7 +146,7 @@ function specific_user_pints() {
     const clear = document.getElementById('clear-specific-user-pints');
 
     button.addEventListener('click', async () => {
-        const name = input.value;
+        const name = escapeHtml(input.value);
         console.log(name);
         if (!name) {
             alert('Please enter a user you want to lookup.');
@@ -190,4 +190,16 @@ function specific_user_pints() {
     <pre id="specific-user-pints-info"></pre>
   </div>
      */
+}
+
+function escapeHtml(text) {
+    var map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }

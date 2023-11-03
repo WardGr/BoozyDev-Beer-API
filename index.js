@@ -28,7 +28,7 @@ httpsServer.listen(HTTPS_PORT, () => {
 });*/
 
 app.get('/', (req, res) => {
-    res.send('This is the HTTPS server file!!');
+    res.send('This is the HTTPS server file!');
 });
 
 app.get('/pints', (req, res) => {
@@ -38,9 +38,10 @@ app.get('/pints', (req, res) => {
 
 app.get('/userpints/:id', (req, res) => {
     const idToFind = req.params.id;
-    console.log("Someone requested pint with id " + idToFind);
+    const id = escapeHtmlInObject(idToFind);
+    console.log("Someone requested pint with id " + id);
     for (let i = 0; i < userData.length; i++) {
-        if (userData[i].id === idToFind) {
+        if (userData[i].id === id) {
             res.status(200).json(userData[i]);
             return;
         }
@@ -50,10 +51,11 @@ app.get('/userpints/:id', (req, res) => {
 
 app.get('/userpints/user/:id', (req, res) => {
     const idToFind = req.params.id;
-    console.log("Someone requested pints from user " + idToFind);
+    const id = escapeHtmlInObject(idToFind);
+    console.log("Someone requested pints from user " + id);
     let result = [];
     for (let i = 0; i < userData.length; i++) {
-        if (userData[i].username === idToFind) {
+        if (userData[i].username === id) {
             result.push(userData[i]);
         }
     }
@@ -81,19 +83,22 @@ app.get('/cristal', (req, res) => {
 app.post('/userpints/:id', (req, res) => {
     const { id } = req.params;
     const { body, username } = req.body;
-    if (!body) {
+    const newId = escapeHtmlInObject(id);
+    const newBody = escapeHtmlInObject(body);
+    const newUsername = escapeHtmlInObject(username);
+    if (!newBody) {
         res.status(400).send({
             message: 'Info about pilsner is missing'
         });
-    } else if (!username) {
+    } else if (!newUsername) {
         res.status(400).send({
             message: 'Username is missing'
         });
     } else {
-        writeData(id, body, username);
-        console.log(username +  "posted a pintje! " + id + " " + body);
+        writeData(newId, newBody, newUsername);
+        console.log(newUsername +  "posted a pintje! " + newId + " " + newBody);
         res.send({
-            pilsner: `Pintje ${id} created by user ${username} with info ${body}`,
+            pilsner: `Pintje ${newId} created by user ${newUsername} with info ${newBody}`,
         });
     }
 });
@@ -158,3 +163,27 @@ fs.readFile(file_path, 'utf8', (err, data) => {
     }
 });
 
+function escapeHtmlInObject(obj) {
+    const escapeHtml = (text) => {
+        var map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, (m) => map[m]);
+    };
+
+    if (typeof obj === 'object') {
+        for (const key in obj) {
+            if (typeof obj[key] === 'string') {
+                obj[key] = escapeHtml(obj[key]);
+            }
+        }
+    } else if (typeof obj === 'string') {
+        return escapeHtml(obj);
+    }
+
+    return obj;
+}
