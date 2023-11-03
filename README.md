@@ -45,5 +45,11 @@ BoozyDev provides the following API endpoints:
 
 - **Get Server-Added Pints: GET /pints**
   - **Request**: Retrieve server-added pints from the non-user database, including details such as name, country, brewery, and type.
+ 
+- **Search pints added by specific user: GET /userpints/:username**
+  - **Request**: Add a new pint to the user-input database.
+  - **Parameters**: 
+    - `username`: User's name
+
 
 Feel free to explore these endpoints and integrate BoozyDev into your applications.
