@@ -7,6 +7,7 @@ const app = express();
 const HTTP_PORT = 8080;
 //const HTTPS_PORT = 4430;
 
+app.use(express.json());
 app.use(cors());
 
 app.listen(HTTP_PORT, () => {

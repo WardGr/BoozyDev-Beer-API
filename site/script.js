@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     postPintjeButton.addEventListener('click', async () => {
         const username = escapeHtml(pintjeUser.value);
         const id = escapeHtml(pintjeIdInput.value);
+        console.log(id);
+        console.log(username);
+
         const body = escapeHtml(pintjeBodyInput.value);
         if (!id) {
             alert('Please enter a value for the beer name field.');
