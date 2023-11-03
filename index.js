@@ -5,7 +5,7 @@ const fs = require('fs');
 const app = express();
 
 const HTTP_PORT = 8080;
-const HTTPS_PORT = 4430;
+//const HTTPS_PORT = 4430;
 
 app.use(cors());
 
@@ -14,16 +14,18 @@ app.listen(HTTP_PORT, () => {
 });
 
 // Configure SSL/TLS options
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/fullchain.pem')
+/*const options = {
+    //key: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/privkey.pem'),
+    //cert: fs.readFileSync('/etc/letsencrypt/live/dropplet.wardgrosemans.be/fullchain.pem')
+    key: fs.readFileSync('/etc/letsencrypt/live/boozydev.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/boozydev.com/fullchain.pem')
 };
 
 const httpsServer = https.createServer(options, app);
 
 httpsServer.listen(HTTPS_PORT, () => {
     console.log(`HTTPS server is running on port ${HTTPS_PORT}`);
-});
+});*/
 
 app.get('/', (req, res) => {
     res.send('This is the HTTPS server file!!');
@@ -44,6 +46,21 @@ app.get('/userpints/:id', (req, res) => {
         }
     }
     res.status(440).json("Could not find pint with cet ID");
+});
+
+app.get('/userpints/user/:id', (req, res) => {
+    const idToFind = req.params.id;
+    console.log("Someone requested pints from user " + idToFind);
+    let result = [];
+    for (let i = 0; i < userData.length; i++) {
+        if (userData[i].username === idToFind) {
+            result.push(userData[i]);
+        }
+    }
+    if (result.length === 0)
+        res.status(440).json("Could not find pint with cet ID");
+    else
+        res.status(200).json(result);
 });
 
 app.get('/userpints', (req, res) => {

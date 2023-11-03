@@ -16,8 +16,8 @@
 <body>
 
 <navbar id="navbar">
-  <div><p>source code</p></div>
-  <div><p>developer</p></div>
+  <div><a href="https://github.com/WardGr/boozydev"><p>source code</p></a></div>
+  <div><a href="https://wardgrosemans.be"><p>developer</p></a></div>
   <div><p>about</p></div>
   <div id="bars" onclick="navbar()"><i class="fa fa-bars" aria-hidden="true"></i></div>
 </navbar>
@@ -48,12 +48,22 @@
 
     <pre id="specific-pint-info"></pre>
   </div>
+
   <div id="posted-result">
     <h2>Get User Pints</h2>
     <button id="get-user-pints">Get User Pints</button>
     <button id="clear-user-pints">Clear</button>
 
     <pre id="user-pints-info"></pre>
+  </div>
+
+  <div id="specific-user-pints-result">
+    <h2>Get Pints Specific User</h2>
+    <input type="text" id="specific-user-input" placeholder="Enter username">
+    <button id="get-specific-user-pints">Get User Pints</button>
+    <button id="clear-specific-user-pints">Clear</button>
+
+    <pre id="specific-user-pints-info"></pre>
   </div>
 </div>
 

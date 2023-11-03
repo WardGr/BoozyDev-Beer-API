@@ -92,7 +92,7 @@ button:hover {
     min-height: calc(100vh - 220px);
 }
 
-#get-result ul, #posted-result ul{
+#get-result ul, #posted-result ul, #specific-user-pints-result ul{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -100,7 +100,7 @@ button:hover {
     margin: 20px;
 }
 
-#get-result li, #posted-result li{
+#get-result li, #posted-result li, #specific-user-pints-result li {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0px 0px 6px 0px black;
@@ -111,7 +111,7 @@ button:hover {
     transition: padding 0.3s ease-in-out;
 }
 
-#get-result li:hover, #posted-result li:hover {
+#get-result li:hover, #posted-result li:hover, #specific-user-pints-result li:hover {
     padding: 20px;
 }
 

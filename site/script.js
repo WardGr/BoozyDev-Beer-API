@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const baseUrl = 'https://dropplet.wardgrosemans.be:4430';
+    //const baseUrl = 'https://dropplet.wardgrosemans.be:4430';
+    //const baseUrl = 'https://boozydev.com:4430';
+    const baseUrl = 'http://localhost:8080';
 
     // Get system Pints
     const getSystemButton = document.getElementById('get-system-pints');
@@ -128,9 +130,64 @@ document.addEventListener('DOMContentLoaded', () => {
         specificPintInfo.textContent = "";
     });
 
+    specific_user_pints();
 });
 
 function navbar() {
     var x = document.getElementById("navbar");
     x.classList.toggle("responsive");
+}
+
+function specific_user_pints() {
+    const baseUrl = 'http://localhost:8080';
+    const button = document.getElementById('get-specific-user-pints');
+    const input = document.getElementById('specific-user-input');
+    const info = document.getElementById('specific-user-pints-info');
+    const clear = document.getElementById('clear-specific-user-pints');
+
+    button.addEventListener('click', async () => {
+        const name = input.value;
+        console.log(name);
+        if (!name) {
+            alert('Please enter a user you want to lookup.');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${baseUrl}/userpints/user/${name}`, {
+                method: 'GET',
+            });
+            if (response.status === 440) {
+
+                info.textContent = `Error: cannot find user in database`;
+            } else {
+                const data = await response.json();
+
+                const ulElement = document.createElement('ul');
+                data.forEach((item) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = JSON.stringify(item, null, 2);
+                    ulElement.appendChild(listItem);
+                });
+                info.innerHTML = '';
+                info.appendChild(ulElement);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+
+    clear.addEventListener('click', async () => {
+        info.textContent = "";
+    });
+    /*
+      <div id="specific-user-pints-result">
+    <h2>Get Pints Specific User</h2>
+    <button id="get-specific-user-pints">Get User Pints</button>
+    <button id="clear-specifi-user-pints">Clear</button>
+
+    <pre id="specific-user-pints-info"></pre>
+  </div>
+     */
 }
