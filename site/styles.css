@@ -144,10 +144,6 @@ a {
 
     }
 
-    #get-result ul, #posted-result ul {
-        flex-direction: column;
-    }
-
     footer {
         height: 110px;
     }
@@ -163,5 +159,9 @@ a {
 
     navbar div:hover {
         background-color: rgb(222,175,89);
+    }
+
+    #user-pints-info {
+        overflow: scroll;
     }
 }
