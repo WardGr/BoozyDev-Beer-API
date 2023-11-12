@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BoozyDev</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<body>
+
+<navbar id="navbar">
+  <div><a href="https://github.com/WardGr/boozydev"><p>source code</p></a></div>
+  <div><a href="https://wardgrosemans.be"><p>developer</p></a></div>
+  <div><a href="https://boozydev.com"><p>link creator</p></a></div>
+  <div><a href="https://boozydev.com"><p>beer api</p></a></div>
+
+  <div><p>about</p></div>
+  <div id="bars" onclick="navbar()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</navbar>
+
+<div id="content">
+  <div id="title">
+    <p>BoozyDev</p>
+  </div>
+  <div>
+    Welcome to BoozyDev, a web development project by a computer science student who enjoys coding and
+    with an occasional drink. This platform is a simple space for diving into the basics of back-end web development.
+
+    Built with a mix of tech know-how and a laid-back vibe,
+    BoozyDev is where programming meets crafting smooth online experiences.
+    Whether you're a pro or just starting out, BoozyDev welcomes you to explore the blend of tech and a bit of inspiration.
+  </div>
+
+  <div id="look_around">
+    <div class="option">
+      <a href="https://wardgrosemans.be"><p class="option-title">About me</p>
+        <p>Welcome to BoozyDev! I've long been captivated by the world of back-end development.
+          While front-end has its charms, back-end has always caught had my eyes.
+          Thus, BoozyDev was born: a digital playground tailored for coding sessions paired
+          with a cold one. After all, around here, we make frequent use of homeBrew.
+          Join me in the exploration of back-end development with a refreshing twist at BoozyDev!</p>
+        <a href="https://github.com/wardgr">
+          <i class="fa fa-github" aria-hidden="true"></i>
+        </a></a>
+
+    </div>
+
+    <div class="option">
+      <a href="https://boozydev.com/links">
+        <p class="option-title">Link Creator</p>
+        <p>In my teenage years, I often relied on tools to generate short and memorable links.
+          Recently, feeling nostalgic, I decided to try my hand at it.
+          While my proficiency in nginx is a work in progress, I
+          haven't quite mastered the art of managing redirections and proxies yet, resulting in somewhat lengthy links.
+          Despite this, I'm proud of the outcome. Feel free to check out the results and join me on this journey of exploration!</p>
+
+      </a>
+       </div>
+    <div class="option">
+      <a href="https://boozydev.com/beerApi">
+        <p class="option-title">beer-api</p>
+        <p>My first encounter with back-end. I was inspired by a class discussion on REST APIs. Eager to apply what I
+          had learned, I envisioned a small project: perhaps a tracker for the cold ones consumed during its creation.</p>
+    </div>
+      </a>
+  </div>
+</div>
+
+<footer>
+  <div><p>© Ward Grosemans 2023 - all rights reserved</p></div>
+  <div>
+    <a href="https://www.linkedin.com/in/ward-grosemans-77b614264/?originalSubdomain=be"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    <a href="https://github.com/wardgr"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
+  </div>
+</footer>
+
+<script>
+  function navbar() {
+    var x = document.getElementById("navbar");
+    x.classList.toggle("responsive");
+  }
+</script>
+</body>
+</html>

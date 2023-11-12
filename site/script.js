@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     //const baseUrl = 'https://dropplet.wardgrosemans.be:4430';
-    const baseUrl = 'https://boozydev.com:4430';
+    const baseUrl = 'https://beers.boozydev.com';
 
     // Get system Pints
     const getSystemButton = document.getElementById('get-system-pints');
@@ -141,7 +141,7 @@ function navbar() {
 }
 
 function specific_user_pints() {
-    const baseUrl = 'https://boozydev.com:4430';
+    const baseUrl = 'https://beers.boozydev.com';
     const button = document.getElementById('get-specific-user-pints');
     const input = document.getElementById('specific-user-input');
     const info = document.getElementById('specific-user-pints-info');

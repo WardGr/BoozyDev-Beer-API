@@ -16,20 +16,6 @@ html {
     max-width: 100%;
 }
 
-h1 {
-    color: #333;
-}
-
-button {
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-#system-pints-info, #pintje-info {
-    white-space: pre;
-}
-
 ul {
     display: flex;
     flex-wrap: wrap;
@@ -66,12 +52,9 @@ navbar > div > p, navbar > div > a {
     font-weight: bolder;
 }
 
-#get-result {
-
-}
-
 footer {
     display: flex;
+    height: 5vh;
     flex-direction: column;
     justify-content: center;
     background-color: rgb(222,175,89);
@@ -99,30 +82,8 @@ button:hover {
 }
 
 #content {
-    min-height: calc(100vh - 220px);
-}
-
-#get-result ul, #posted-result ul, #specific-user-pints-result ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-#get-result li, #posted-result li, #specific-user-pints-result li {
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px 0px black;
-    margin: 5px;
-    width: 15%;
-    min-width: fit-content;
-    background-color: ghostwhite;
-    transition: padding 0.3s ease-in-out;
-}
-
-#get-result li:hover, #posted-result li:hover, #specific-user-pints-result li:hover {
-    padding: 20px;
+    min-height: calc(100vh - 10vh - 40px - 5vh - 5vh);
+    height: 100%;
 }
 
 #bars {
@@ -133,6 +94,55 @@ a {
     text-decoration: none;
     color: black;
 
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 8vh;
+    margin-left: 11%;
+    margin-right: 11%;
+}
+
+#look_around {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+.option {
+    background-color: rgb(234,221,193);
+    min-width: 200px;
+    flex: 1;
+    max-width: 30%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.option-title {
+    font-weight: bolder;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 750px) {
+
+    #look_around {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .option {
+        max-width: 80%;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -154,16 +164,12 @@ a {
 
     }
 
-    #get-result ul {
-        flex-direction: column;
-    }
-
     footer {
         height: 110px;
     }
 
     #content {
-        min-height: calc(100vh - 247px);
+        min-height: calc(100vh - 5vh - 120px);
     }
 
     navbar {
@@ -174,26 +180,10 @@ a {
     navbar div:hover {
         background-color: rgb(222,175,89);
     }
-
-    #user-pints-info ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    #user-pints-info li {
-        border-bottom: 1px solid #ccc;
-        padding: 10px 0;
-    }
-
-    #user-pints-info li:last-child {
-        border-bottom: none;
-    }
-
-    #posted-result li {
-        width: 100%;
-        box-shadow: none;
-        margin: 5px 0;
-        min-width: 0; /* todo why does this fix it? */
-    }
-
 }
+
+#title {
+    font-weight: bolder;
+    font-size: 24px;
+}
+
