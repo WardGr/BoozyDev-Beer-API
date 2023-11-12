@@ -6,6 +6,11 @@ body {
     height: 100%;
 }
 
+* {
+    overflow: scroll;
+    max-width: 100%;
+}
+
 h1 {
     color: #333;
 }
@@ -144,6 +149,10 @@ a {
 
     }
 
+    #get-result ul {
+        flex-direction: column;
+    }
+
     footer {
         height: 110px;
     }
@@ -161,7 +170,25 @@ a {
         background-color: rgb(222,175,89);
     }
 
-    #user-pints-info {
-        overflow: scroll;
+    #user-pints-info ul {
+        list-style-type: none;
+        padding: 0;
     }
+
+    #user-pints-info li {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+    }
+
+    #user-pints-info li:last-child {
+        border-bottom: none;
+    }
+
+    #posted-result li {
+        width: 100%;
+        box-shadow: none;
+        margin: 5px 0;
+        min-width: 0; /* todo why does this fix it? */
+    }
+
 }
