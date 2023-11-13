@@ -17,20 +17,6 @@ html {
     max-width: 100%;
 }
 
-h1 {
-    color: #333;
-}
-
-button {
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-#system-pints-info, #pintje-info {
-    white-space: pre;
-}
-
 ul {
     display: flex;
     flex-wrap: wrap;
@@ -67,12 +53,9 @@ navbar > div > p, navbar > div > a {
     font-weight: bolder;
 }
 
-#get-result {
-
-}
-
 footer {
     display: flex;
+    height: 5vh;
     flex-direction: column;
     justify-content: center;
     background-color: rgb(222,175,89);
@@ -86,13 +69,22 @@ footer i {
     cursor: pointer;
 }
 
-input, button {
+input, button, textarea {
+    text-align: center;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
     border: none;
     box-shadow: 0px 0px 6px 0px rgb(222,175,89);
     transition: padding 0.3s ease-in-out;
+    min-width: 60%;
+}
+#wholetext > conta {
+    min-width: 500px;
+}
+
+.contact-input {
+    width: 100%;
 }
 
 button:hover {
@@ -100,30 +92,8 @@ button:hover {
 }
 
 #content {
-    min-height: calc(100vh - 220px);
-}
-
-#get-result ul, #posted-result ul, #specific-user-pints-result ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-#get-result li, #posted-result li, #specific-user-pints-result li {
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px 0px black;
-    margin: 5px;
-    width: 15%;
-    min-width: fit-content;
-    background-color: ghostwhite;
-    transition: padding 0.3s ease-in-out;
-}
-
-#get-result li:hover, #posted-result li:hover, #specific-user-pints-result li:hover {
-    padding: 20px;
+    min-height: calc(100vh - 10vh - 40px - 5vh - 5vh);
+    height: 100%;
 }
 
 #bars {
@@ -136,12 +106,41 @@ a {
 
 }
 
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 8vh;
+    margin-left: 11%;
+    margin-right: 11%;
+}
+
+#look_around {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+
+@media screen and (max-width: 750px) {
+
+    #look_around {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .option {
+        max-width: 80%;
+    }
+}
+
 @media screen and (max-width: 600px) {
-    input, button {
-        width: 100%;
-        text-transform: capitalize;
-        min-height: 50px;
-        text-align: center;
+    input, button, textarea {
+        min-width: 90%;
     }
     #bars {
         display: flex;
@@ -161,16 +160,12 @@ a {
 
     }
 
-    #get-result ul {
-        flex-direction: column;
-    }
-
     footer {
         height: 110px;
     }
 
     #content {
-        min-height: calc(100vh - 247px);
+        min-height: calc(100vh - 5vh - 120px);
     }
 
     navbar {
@@ -181,26 +176,15 @@ a {
     navbar div:hover {
         background-color: rgb(222,175,89);
     }
+}
 
-    #user-pints-info ul {
-        list-style-type: none;
-        padding: 0;
-    }
+#title {
+    font-weight: bolder;
+    font-size: 24px;
+}
 
-    #user-pints-info li {
-        border-bottom: 1px solid #ccc;
-        padding: 10px 0;
-    }
-
-    #user-pints-info li:last-child {
-        border-bottom: none;
-    }
-
-    #posted-result li {
-        width: 100%;
-        box-shadow: none;
-        margin: 5px 0;
-        min-width: 0; /* todo why does this fix it? */
-    }
-
+#error {
+    color: indianred;
+    font-size: 11px;
+    margin-top: 14px;
 }

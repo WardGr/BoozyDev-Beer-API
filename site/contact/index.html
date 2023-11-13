@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, follow">
+    <title>BoozyDev | Contact</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+-</head>
+<body>
+
+</body>
+</html>
+<body>
+
+<navbar id="navbar">
+    <div><a href="https://github.com/WardGr/boozydev"><p>source code</p></a></div>
+    <div><a href="https://wardgrosemans.be"><p>developer</p></a></div>
+    <div><a href="https://boozydev.com/links"><p>link creator</p></a></div>
+    <div><a href="https://boozydev.com/beerApi"><p>beer api</p></a></div>
+    <div id="bars" onclick="navbar()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</navbar>
+
+<div id="content">
+    <div id="title">
+        <p>Contact</p>
+    </div>
+
+    <div id="info">Feel free to contact me through this form!</div>
+    <div class="contact-input">
+        <input type="text" placeholder="Your name:" id="name">
+    </div>
+    <div class="contact-input">
+        <input type="email" placeholder="Your e-mail:" id="email">
+    </div>
+    <div class="contact-input">
+        <input type="text" placeholder="Subject:" id="subject">
+    </div>
+    <div class="contact-input" id="wholetext">
+        <textarea type="text" placeholder="Message:" id="message"></textarea>
+    </div>
+    <div id="contact-tokens">
+        <p>0/2000</p>
+    </div>
+    <div id="contact-submit">
+        <input type="submit" id="submit">
+    </div>
+    <div id="error"></div>
+</div>
+
+<footer>
+    <div><p>© Ward Grosemans 2023 - all rights reserved</p></div>
+    <div>
+        <a href="https://www.linkedin.com/in/ward-grosemans-77b614264/?originalSubdomain=be"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/wardgr"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
+    </div>
+</footer>
+
+<script>
+    function navbar() {
+        var x = document.getElementById("navbar");
+        x.classList.toggle("responsive");
+    }
+</script>
+
+<script src="sendMail.js"></script>
+</body>
+</html>
