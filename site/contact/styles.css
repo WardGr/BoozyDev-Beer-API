@@ -188,3 +188,20 @@ a {
     font-size: 11px;
     margin-top: 14px;
 }
+
+#contact-submit {
+    min-width: 100%;
+}
+#submit {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#contact-tokens {
+    align-self: flex-end;
+    width: 55%;
+}
+#submit:hover {
+    background-color: rgb(255,226,60);
+    padding: 8px;
+}

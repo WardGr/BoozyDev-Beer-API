@@ -58,6 +58,7 @@ async function send(json) {
         .catch(error => {
             changeText("Something went wrong, please try again later.");
         });
+    clearFields();
 }
 
 function escapeHtml(text) {
@@ -70,4 +71,11 @@ function escapeHtml(text) {
     };
 
     return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
+function clearFields() {
+    document.getElementById('name').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('subject').value = "";
+    document.getElementById('message').value = "";
 }
