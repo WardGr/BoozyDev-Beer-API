@@ -8,12 +8,15 @@ body {
     background-position: 0 4vh;
 }
 
+#google {
+    display:none;
+}
+
 html {
     background-color: rgb(222,175,89);
 }
 
 * {
-    overflow: scroll;
     max-width: 100%;
 }
 
@@ -26,6 +29,7 @@ ul {
 }
 
 navbar {
+    min-height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,7 +87,8 @@ button:hover {
 }
 
 #content {
-    min-height: calc(100vh - 10vh - 40px - 5vh - 5vh);
+
+    min-height: calc(100vh - 10vh - 4vh);
     height: 100%;
 }
 
@@ -102,7 +107,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 8vh;
+    margin-top: 4vh;
     margin-left: 11%;
     margin-right: 11%;
 }
@@ -183,8 +188,7 @@ a {
     }
 }
 
-#title {
-    font-weight: bolder;
-    font-size: 24px;
+#title img {
+    max-width: 200px;
 }
 

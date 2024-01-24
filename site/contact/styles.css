@@ -13,7 +13,6 @@ html {
 }
 
 * {
-    overflow: scroll;
     max-width: 100%;
 }
 
@@ -92,7 +91,7 @@ button:hover {
 }
 
 #content {
-    min-height: calc(100vh - 10vh - 40px - 5vh - 5vh);
+    min-height: calc(100vh - 5vh - 40px - 5vh - 5vh);
     height: 100%;
 }
 

@@ -13,7 +13,6 @@ html {
 }
 
 * {
-    overflow: scroll;
     max-width: 100%;
 }
 
@@ -134,6 +133,14 @@ a {
     text-decoration: none;
     color: black;
 
+}
+
+li {
+    overflow: scroll;
+}
+
+li::-webkit-scrollbar {
+    width: 0;
 }
 
 @media screen and (max-width: 600px) {
